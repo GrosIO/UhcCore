@@ -1,14 +1,14 @@
 #Choose the percentage threshold of ready teams at which the game should start
-minimal-ready-teams-percentage-to-start: 60
+minimal-ready-teams-percentage-to-start: 100
 
 #Choose the threshold of ready teams at which the game should start (in combination with the percentage condition)
-minimal-ready-teams-to-start: 2
+minimal-ready-teams-to-start: 5
 
 #Choose the minimum number of players connected  to start the countdown when team are ready (in combination with the two above options)
 min-players-to-start: 0
 
 #Choose how much players can be in the same team, set it to 1 to play a game with no teams
-max-players-per-team: 2
+max-players-per-team: 3
 
 #If true every team will get a random team color.
 use-team-colors: true
@@ -26,21 +26,21 @@ force-assign-solo-player-to-team-when-starting: false
 prevent-player-from-leaving-team: false
 
 #Forces the teams to be always ready, thus preventing afk players from blocking the beginning of the game
-team-always-ready: false
+team-always-ready: true
 
 #Choose the coundown time to start the game when enough teams are ready
 #This value must be set to 6 or more. If you set a value of 5 or less, it will cause an unpredictable behavior.
-time-to-start-when-ready: 15
+time-to-start-when-ready: 10
 
 #The time is seconds before the PVP starts
-time-before-pvp: 600
+time-before-pvp: 2310
 
 #Set it to false to kick player when they die. (Give players the permission 'uhc-core.spectate.override' to always allow them to spectate)
-can-spectate-after-death: false
+can-spectate-after-death: true
 
 #Set it to true to allow new players to join as spectators when the game is already running (it requires can-spectate-after-death to be true)
 # (Give players the permission 'uhc-core.spectate.override' to always allow them to spectate)
-can-join-as-spectator: false
+can-join-as-spectator: true
 
 #Set it to false to block spectators from sending messages (Players with the permission 'uhc-core.chat.override' will still be able to talk)
 can-send-messages-after-death: false
@@ -56,14 +56,14 @@ chat-prefix:
 #Configure after how many seconds a disconnected player should be considered dead and eliminated
 kill-disconnected-players-after-delay:
   enable: true
-  delay: 20
+  delay: 90
 
 #Timer in seconds to auto stop/restart the server when the game as ended (Set to -1 to disable)
-time-before-restart-after-end: 30
+time-before-restart-after-end: -1
 
 #Set it to false to prevent the end of the game if there are no players left (may be useful for private servers with friends playing over several days,
 # it still requires the server to be left running while there are no players on it)
-countdown-ending-game-when-all-players-have-left: true
+countdown-ending-game-when-all-players-have-left: false
 
 # Enable to have a message and sound every x minutes. (This can be used for youtubers to know when to end their episodes.)
 episode-markers:
@@ -75,22 +75,20 @@ episode-markers:
 #syntax = POTION_NAME/duration_in_ticks/amplifier
 #reference list https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/potion/PotionEffectType.html
 potion-effect-on-start:
-  - DAMAGE_RESISTANCE/900/100
-  - REGENERATION/900/10
+  - DAMAGE_RESISTANCE/50/100
+  - REGENERATION/50/10
 
 # Customize game behavior to add non-standard minecraft things
 customize-game-behavior:
 
   # Set a list of scenarios that are active by default. Set to true when you want to use this feature.
-  enable-default-scenarios: true
+  enable-default-scenarios: false
 
   # You can change these for individual game using /scenarios (permission: 'uhc-core.scenarios.edit')
   # You can choose from these scenarios: CUTCLEAN, FIRELESS, BOWLESS, RODLESS, BLOODDIAMONDS, TIMBER, HORSELESS,
   # TIMEBOMB, NOFALL, BESTPVE, TRIPLEORES, TEAMINVENTORY, NOCLEAN, HASTEYBOYS, LUCKYLEAVES, BLEEDINGSWEETS,
   # DOUBLEGOLD, GOLDLESS, SWITCHEROO, VEINMINER
   active-scenarios:
-    - TIMEBOMB
-    - HASTEYBOYS
 
   scenarios:
     # When enabled players will be able to vote for what scenarios they want to be active.
@@ -103,7 +101,7 @@ customize-game-behavior:
 
   # Set it to true to allow ghast from dropping tears
   # Setting it to false is a good way to prevent people from making regeneration potions
-  allow-ghast-tears-drops: true
+  allow-ghast-tears-drops: false
 
 
   # Enable extra experience drops when killing a player (experience quantities reference http://minecraft.gamepedia.com/Experience)
@@ -119,12 +117,11 @@ customize-game-behavior:
     max: 3
     drop-chance-percentage: 50
     affected-mobs:
-      - CREEPER
       - GHAST
 
   # Enable extra max life for every player
   add-player-extra-half-hearts:
-    enable: true
+    enable: false
     extra-half-hearts: 20
 
   # Add custom crafts
@@ -147,7 +144,7 @@ customize-game-behavior:
       '2': GOLD_INGOT/1/0 APPLE/1/0 GOLD_INGOT/1/0
       '3': AIR/1/0 GOLD_INGOT/1/0 AIR/1/0
       craft: GOLDEN_APPLE/1/0
-      default-name: true
+      default-name: false
       enchants: []
       limit: -1
     'Light Anvil':
@@ -184,13 +181,12 @@ customize-game-behavior:
   # Syntax ITEM_NAME/DAMAGE_VALUE
   # To remove all items change to "ban-items-crafts: []"
   ban-items-crafts:
-    - GOLDEN_APPLE/1
 
   #Set it to true to prevent players from making level II potions with glowstone
-  ban-level-2-potions: false
+  ban-level-2-potions: true
 
   #Set it to false to get the normal day light cycle
-  always-day: true
+  always-day: false
 
 
   # Set it to true to allow droping a player head when a player dies
@@ -201,7 +197,7 @@ customize-game-behavior:
   # When golden heads are enabled on players death a skull will drop.
   # This skull can be placed in a crafting table with 8 gold around it to craft a "Golden Apple".
   # Golden heads heal 4 hearths instead of 2 for normal golden apples.
-  enable-golden-heads: true
+  enable-golden-heads: false
 
 
   # Set it to false to disable the sound on player death
